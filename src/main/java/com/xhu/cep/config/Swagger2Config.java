@@ -1,6 +1,5 @@
 package com.xhu.cep.config;
 
-import io.swagger.annotations.ApiOperation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -35,8 +34,8 @@ public class Swagger2Config {
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
                 .title("高校员工业绩管理系统")
-                .description("cep")
-                //.contact("macro")
+                .description("团队成员:宋元双、管艺、杨杰、吴康")
+                .contact("mason")
                 .version("1.0")
                 .build();
     }

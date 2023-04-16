@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhu.cep.mbg.mapper.teach_compet.TeachCompetMapper">
+    <select id="getTeachCompetAll" resultType="com.xhu.cep.mbg.model.teach_compet.TeachCompet">
+        select cep_tc_name.id as id,
+            cep_tc_name.name as cepTcName,
+        cep_tc_organizer.name as cepTcOrganizerName,
+        cep_tc_identification_level.name as cepTcIdentificationLevelName
+        from cep_teaching_competition
+                 left join cep_tc_name on cep_teaching_competition.tc_name_id = cep_tc_name.id
+                 left join cep_tc_organizer on cep_teaching_competition.organizer_id = cep_tc_organizer.id
+                 left join cep_tc_identification_level on cep_teaching_competition.identification_level_id =
+                                                          cep_tc_identification_level.identification_level_id
+    </select>
+</mapper>

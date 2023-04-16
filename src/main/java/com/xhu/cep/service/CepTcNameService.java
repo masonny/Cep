@@ -1,6 +1,6 @@
 package com.xhu.cep.service;
 
-import com.xhu.cep.mbg.model.tc.CepTcName;
+import com.xhu.cep.mbg.model.teach_compet.CepTcName;
 
 import java.util.List;
 

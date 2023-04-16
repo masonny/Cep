@@ -1,9 +1,9 @@
 package com.xhu.cep.service.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.xhu.cep.mbg.mapper.tc.CepTcNameMapper;
-import com.xhu.cep.mbg.model.tc.CepTcName;
-import com.xhu.cep.mbg.model.tc.CepTcNameExample;
+import com.xhu.cep.mbg.mapper.teach_compet.CepTcNameMapper;
+import com.xhu.cep.mbg.model.teach_compet.CepTcName;
+import com.xhu.cep.mbg.model.teach_compet.CepTcNameExample;
 import com.xhu.cep.service.CepTcNameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
