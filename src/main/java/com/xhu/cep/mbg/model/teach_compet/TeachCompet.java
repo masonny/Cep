@@ -3,6 +3,9 @@ package com.xhu.cep.mbg.model.teach_compet;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+/**
+ * 竞赛列表
+ */
 @Data
 public class TeachCompet {
     private Long id;

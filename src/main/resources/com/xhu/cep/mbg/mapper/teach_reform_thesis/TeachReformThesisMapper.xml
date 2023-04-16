@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhu.cep.mbg.mapper.teach_reform_thesis.TeachReformThesisMapper">
+   <select id="getTeachReformThesisAll" resultType="com.xhu.cep.mbg.model.teach_reform_thesis.TeachReformThesis">
+       select teach_reform_thesis.id,
+              trt_rank.name as 'rank',
+               teach_reform_thesis.name as 'kind',
+               trt_reward.j as 'j'
+       from teach_reform_thesis
+                left join trt_rank on teach_reform_thesis.rank_id = trt_rank.id
+                left join  trt_reward on teach_reform_thesis.reward_id = trt_reward.id
+   </select>
+</mapper>

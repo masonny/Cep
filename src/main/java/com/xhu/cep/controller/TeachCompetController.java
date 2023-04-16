@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * Created by mason on 2023/4/17
  */
-@Api(tags = "TeachCompetController", description = "教学竞赛认定级别表")
+@Api(tags = "TeachCompetController", description = "教学业绩管理-教学竞赛")
 @Controller
 @RequestMapping("/teachCompet")
 public class TeachCompetController {

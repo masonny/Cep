@@ -7,7 +7,7 @@
     <properties resource="generator.properties" />
     <!--设置类型别名-->
     <typeAliases>
-        <package name="com.xhu.cep.mbg.model.teach_compet"/>
+<!--        <package name="com.xhu.cep.mbg.model.teach_compet"/>-->
     </typeAliases>
     <environments default="development">
         <environment id="development">
