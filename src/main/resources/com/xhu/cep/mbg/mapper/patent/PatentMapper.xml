@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhu.cep.mbg.mapper.patent.PatentMapper">
+    <select id="getPatentAllList" resultType="com.xhu.cep.mbg.model.patent.Patent">
+        select patent.id,
+               rank_a.name  as rankAName,
+                rank_a1.name as rankA1Name,
+                patent.name  as patentName,
+                patent_k.k   as patentKK
+        from patent
+                 left join rank_a on patent.rank_a_id = rank_a.id
+                 left join rank_a1 on patent.rank_a1_id = rank_a1.id
+                 left join patent_k on patent.patent_k_id = patent_k.id;
+    </select>
+
+</mapper>

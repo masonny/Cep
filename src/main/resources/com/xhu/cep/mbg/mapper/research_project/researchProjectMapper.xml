@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhu.cep.mbg.mapper.research_project.ResearchProjectMapper">
+    <select id="getResearchProjectAllList" resultType="com.xhu.cep.mbg.model.research_project.ResearchProject">
+        select research_project.id,
+               rank_a.name            as rankAName,
+                rank_a1.name           as rankA1Name,
+                rp_project_source.name as rpProjectSourceName,
+                k.k                    as k
+        from research_project
+                 left join rank_a on rank_a_id = rank_a.id
+                 left join rank_a1 on rank_a1_id = rank_a1.id
+                 left join rp_classifi on classifi_id = rp_classifi.id
+                 left join rp_project_source on proj_sou_id = rp_project_source.id
+                 left join k on k_id = k.id;
+</select>
+</mapper>

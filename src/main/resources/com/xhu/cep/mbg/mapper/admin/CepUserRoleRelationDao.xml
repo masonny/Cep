@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhu.cep.mbg.mapper.admin.CepUserRoleRelationDao">
+    <select id="getPermissionList" resultType="com.xhu.cep.mbg.model.admin.CepProjectPermisson">
+        select cep_project_permisson.*
+        from user_role
+                 right join cep_role on user_role.cep_role_id = cep_role.id
+                 right join cep_role_permisson_relationship on cep_role.id = cep_role_permisson_relationship.role_id
+                 left join cep_project_permisson
+                           on cep_role_permisson_relationship.project_permisson_id = cep_project_permisson.id
+        where user_role.user_id = #{userId}
+    </select>
+</mapper>

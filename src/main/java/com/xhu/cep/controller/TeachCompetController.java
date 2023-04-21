@@ -11,8 +11,8 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,19 +34,20 @@ public class TeachCompetController {
     @ApiOperation("获取教学竞赛认定级别列表")
     @RequestMapping(value = "listAll", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult<List<TeachCompet>> getCepTcNameAllList() {
+    @PreAuthorize("hasAuthority('cep:tct:read')")
+    public CommonResult<List<TeachCompet>> getTeachCompetAll() {
         return CommonResult.success(teachCompetService.getTeachCompetAll());
     }
-
 
     @ApiOperation("获取比赛名称列表")
     @RequestMapping(value = "listTcNameAll", method = RequestMethod.GET)
     @ResponseBody
+    @PreAuthorize("hasAuthority('cep:tct:read')")
     public CommonResult<List<CepTcName>> getCepTcNameList() {
         return CommonResult.success(cepTcNameService.listAllTcName());
     }
 
-    @ApiOperation("添加比赛")
+    /*@ApiOperation("添加比赛")
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult createBrand(@RequestBody CepTcName cepTcName) {
@@ -90,7 +91,7 @@ public class TeachCompetController {
             LOGGER.debug("deleteBrand failed :id={}", id);
             return CommonResult.failed("操作失败");
         }
-    }
+    }*/
 
     @ApiOperation("分页查询比赛名称列表")
     @RequestMapping(value = "/list", method = RequestMethod.GET)

@@ -31,30 +31,30 @@
             <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
         <!--指定生成model的路径-->
-        <javaModelGenerator targetPackage="com.xhu.cep.mbg.model.teach_compet" targetProject="src/main/java"/>
+        <javaModelGenerator targetPackage="com.xhu.cep.mbg.model.admin" targetProject="src/main/java"/>
         <!--指定生成mapper.xml的路径-->
-        <sqlMapGenerator targetPackage="com.xhu.cep.mbg.mapper.teach_compet" targetProject="src/main/resources"/>
+        <sqlMapGenerator targetPackage="com.xhu.cep.mbg.mapper.admin" targetProject="src/main/resources"/>
         <!--指定生成mapper接口的的路径-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xhu.cep.mbg.mapper.teach_compet"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xhu.cep.mbg.mapper.admin"
                              targetProject="src/main/java"/>
         <!--生成全部表tableName设为%-->
 <!--        教学竞赛 teach_compet-->
-        <table tableName="cep_teaching_competition">
+        <table tableName="cep_user">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <!--<table tableName="cep_tc_name">
+        <!--<table tableName="user_role">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="cep_tc_organizer">
+        <table tableName="cep_role">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="cep_tc_identification_level">
+        <table tableName="cep_project_permisson">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="cep_tc_reward">
+        <table tableName="cep_role_permisson_relationship">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="cep_tc_reward">
+        <table tableName="cep_user_permisson">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>-->
     </context>

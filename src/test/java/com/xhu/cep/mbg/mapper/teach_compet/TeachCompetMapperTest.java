@@ -17,7 +17,7 @@ public class TeachCompetMapperTest {
     InputStream is = Resources.getResourceAsStream("mybatisConfig.xml");
     SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
     SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(is);
-    SqlSession sqlSession = sqlSessionFactory.openSession(true);//自动提交方式
+    SqlSession sqlSession = sqlSessionFactory.openSession(true);//鑷姩鎻愪氦鏂瑰紡
     TeachCompetMapper mapper = sqlSession.getMapper(TeachCompetMapper.class);
 
     List<TeachCompet> list = mapper.getTeachCompetAll();

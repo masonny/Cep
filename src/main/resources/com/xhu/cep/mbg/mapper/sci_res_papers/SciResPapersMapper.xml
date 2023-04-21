@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhu.cep.mbg.mapper.sci_res_papers.SciResPapersMapper">
+    <select id="getSciResPapersAllList" resultType="com.xhu.cep.mbg.model.sci_res_papers.SciResPapers">
+        select sci_res_papers.id,
+               sci_res_papers.name as sciResPapersName,
+               sci_rank.name       as sciRankName,
+               sci_rank.k          as sciRankK
+        from sci_res_papers
+                 left join sci_rank on sci_rank_id = sci_rank.id;
+    </select>
+
+</mapper>

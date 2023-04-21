@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xhu.cep.mbg.mapper.transfor_results.TransforResultsMapper">
+    <select id="getTransforResultsAllList" resultType="com.xhu.cep.mbg.model.transfor_results.TransforResults">
+        select transfor_results.id,
+               transfor_rank.name as transforRankName,
+                transfor_results.profit as transforResultsProfit,
+                transfor_results.k as transforResultsK
+        from transfor_results
+                 left join transfor_rank on tansfor_rank_id = transfor_rank.id;
+</select>
+
+</mapper>
