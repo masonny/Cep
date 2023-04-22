@@ -6,6 +6,7 @@
     <result column="user_id" jdbcType="BIGINT" property="userId" />
     <result column="guide_stu_compe_id" jdbcType="BIGINT" property="guideStuCompeId" />
     <result column="descripation" jdbcType="VARCHAR" property="descripation" />
+    <result column="team_indiv_large_id" jdbcType="BIGINT" property="teamIndivLargeId" />
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
     <result column="crete_time" jdbcType="TIMESTAMP" property="creteTime" />
@@ -70,7 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_id, guide_stu_compe_id, descripation, status, sort, crete_time, updata_time
+    id, user_id, guide_stu_compe_id, descripation, team_indiv_large_id, status, sort, 
+    crete_time, updata_time
   </sql>
   <select id="selectByExample" parameterType="com.xhu.cep.mbg.model.admin.UserGuideStuCompeExample" resultMap="BaseResultMap">
     select
@@ -107,11 +109,11 @@
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into user_guide_stu_compe (user_id, guide_stu_compe_id, descripation, 
-      status, sort, crete_time, 
-      updata_time)
+      team_indiv_large_id, status, sort, 
+      crete_time, updata_time)
     values (#{userId,jdbcType=BIGINT}, #{guideStuCompeId,jdbcType=BIGINT}, #{descripation,jdbcType=VARCHAR}, 
-      #{status,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}, #{creteTime,jdbcType=TIMESTAMP}, 
-      #{updataTime,jdbcType=TIMESTAMP})
+      #{teamIndivLargeId,jdbcType=BIGINT}, #{status,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}, 
+      #{creteTime,jdbcType=TIMESTAMP}, #{updataTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.xhu.cep.mbg.model.admin.UserGuideStuCompe">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
@@ -127,6 +129,9 @@
       </if>
       <if test="descripation != null">
         descripation,
+      </if>
+      <if test="teamIndivLargeId != null">
+        team_indiv_large_id,
       </if>
       <if test="status != null">
         status,
@@ -150,6 +155,9 @@
       </if>
       <if test="descripation != null">
         #{descripation,jdbcType=VARCHAR},
+      </if>
+      <if test="teamIndivLargeId != null">
+        #{teamIndivLargeId,jdbcType=BIGINT},
       </if>
       <if test="status != null">
         #{status,jdbcType=INTEGER},
@@ -186,6 +194,9 @@
       <if test="record.descripation != null">
         descripation = #{record.descripation,jdbcType=VARCHAR},
       </if>
+      <if test="record.teamIndivLargeId != null">
+        team_indiv_large_id = #{record.teamIndivLargeId,jdbcType=BIGINT},
+      </if>
       <if test="record.status != null">
         status = #{record.status,jdbcType=INTEGER},
       </if>
@@ -209,6 +220,7 @@
       user_id = #{record.userId,jdbcType=BIGINT},
       guide_stu_compe_id = #{record.guideStuCompeId,jdbcType=BIGINT},
       descripation = #{record.descripation,jdbcType=VARCHAR},
+      team_indiv_large_id = #{record.teamIndivLargeId,jdbcType=BIGINT},
       status = #{record.status,jdbcType=INTEGER},
       sort = #{record.sort,jdbcType=INTEGER},
       crete_time = #{record.creteTime,jdbcType=TIMESTAMP},
@@ -228,6 +240,9 @@
       </if>
       <if test="descripation != null">
         descripation = #{descripation,jdbcType=VARCHAR},
+      </if>
+      <if test="teamIndivLargeId != null">
+        team_indiv_large_id = #{teamIndivLargeId,jdbcType=BIGINT},
       </if>
       <if test="status != null">
         status = #{status,jdbcType=INTEGER},
@@ -249,6 +264,7 @@
     set user_id = #{userId,jdbcType=BIGINT},
       guide_stu_compe_id = #{guideStuCompeId,jdbcType=BIGINT},
       descripation = #{descripation,jdbcType=VARCHAR},
+      team_indiv_large_id = #{teamIndivLargeId,jdbcType=BIGINT},
       status = #{status,jdbcType=INTEGER},
       sort = #{sort,jdbcType=INTEGER},
       crete_time = #{creteTime,jdbcType=TIMESTAMP},

@@ -355,6 +355,66 @@ public class UserGuideStuCompeExample {
             return (Criteria) this;
         }
 
+        public Criteria andTeamIndivLargeIdIsNull() {
+            addCriterion("team_indiv_large_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamIndivLargeIdIsNotNull() {
+            addCriterion("team_indiv_large_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamIndivLargeIdEqualTo(Long value) {
+            addCriterion("team_indiv_large_id =", value, "teamIndivLargeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamIndivLargeIdNotEqualTo(Long value) {
+            addCriterion("team_indiv_large_id <>", value, "teamIndivLargeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamIndivLargeIdGreaterThan(Long value) {
+            addCriterion("team_indiv_large_id >", value, "teamIndivLargeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamIndivLargeIdGreaterThanOrEqualTo(Long value) {
+            addCriterion("team_indiv_large_id >=", value, "teamIndivLargeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamIndivLargeIdLessThan(Long value) {
+            addCriterion("team_indiv_large_id <", value, "teamIndivLargeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamIndivLargeIdLessThanOrEqualTo(Long value) {
+            addCriterion("team_indiv_large_id <=", value, "teamIndivLargeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamIndivLargeIdIn(List<Long> values) {
+            addCriterion("team_indiv_large_id in", values, "teamIndivLargeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamIndivLargeIdNotIn(List<Long> values) {
+            addCriterion("team_indiv_large_id not in", values, "teamIndivLargeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamIndivLargeIdBetween(Long value1, Long value2) {
+            addCriterion("team_indiv_large_id between", value1, value2, "teamIndivLargeId");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamIndivLargeIdNotBetween(Long value1, Long value2) {
+            addCriterion("team_indiv_large_id not between", value1, value2, "teamIndivLargeId");
+            return (Criteria) this;
+        }
+
         public Criteria andStatusIsNull() {
             addCriterion("status is null");
             return (Criteria) this;

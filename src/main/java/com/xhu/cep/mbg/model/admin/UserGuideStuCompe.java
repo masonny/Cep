@@ -33,6 +33,14 @@ public class UserGuideStuCompe implements Serializable {
     private String descripation;
 
     /**
+     * 团队还是个人或大型集体项目
+     *
+     * @mbg.generated
+     */
+    @ApiModelProperty(value = "团队还是个人或大型集体项目")
+    private Long teamIndivLargeId;
+
+    /**
      * 通过状态
      *
      * @mbg.generated
@@ -98,6 +106,14 @@ public class UserGuideStuCompe implements Serializable {
         this.descripation = descripation;
     }
 
+    public Long getTeamIndivLargeId() {
+        return teamIndivLargeId;
+    }
+
+    public void setTeamIndivLargeId(Long teamIndivLargeId) {
+        this.teamIndivLargeId = teamIndivLargeId;
+    }
+
     public Integer getStatus() {
         return status;
     }
@@ -140,6 +156,7 @@ public class UserGuideStuCompe implements Serializable {
         sb.append(", userId=").append(userId);
         sb.append(", guideStuCompeId=").append(guideStuCompeId);
         sb.append(", descripation=").append(descripation);
+        sb.append(", teamIndivLargeId=").append(teamIndivLargeId);
         sb.append(", status=").append(status);
         sb.append(", sort=").append(sort);
         sb.append(", creteTime=").append(creteTime);
