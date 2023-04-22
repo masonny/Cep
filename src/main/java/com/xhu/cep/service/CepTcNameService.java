@@ -8,7 +8,7 @@ import java.util.List;
  * Created by mason on 2023/4/14
  */
 public interface CepTcNameService {
-    List<CepTcName> listAllTcName();
+    List<CepTcName> nameListAll();
 
     int createTcName(CepTcName cepTcName);
 

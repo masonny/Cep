@@ -23,8 +23,13 @@ import java.util.List;
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
+    private final static String info =
+            "1.1 增加获取教学竞赛认定级别表\t" +
+            "1.2 增加员工注册、登录、权限\t" +
+            "1.3 增加教师教学竞赛认定申请";
+
     @Bean
-    public Docket createRestApi(){
+    public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
@@ -40,10 +45,6 @@ public class Swagger2Config {
                 .securitySchemes(securitySchemes())
                 .securityContexts(securityContexts());
     }
-
-    private final static String info =
-            "1.1 增加获取教学竞赛认定级别表" +
-            "1.2 增加员工注册、登录、权限";
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
@@ -68,7 +69,7 @@ public class Swagger2Config {
         return result;
     }
 
-    private SecurityContext getContextByPath(String pathRegex){
+    private SecurityContext getContextByPath(String pathRegex) {
         return SecurityContext.builder()
                 .securityReferences(defaultAuth())
                 .forPaths(PathSelectors.regex(pathRegex))

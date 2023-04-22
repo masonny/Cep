@@ -18,7 +18,7 @@ public class CepTcNameServiceImpl implements CepTcNameService {
     @Autowired
     private CepTcNameMapper cepTcNameMapper;
     @Override
-    public List<CepTcName> listAllTcName() {
+    public List<CepTcName> nameListAll() {
         return cepTcNameMapper.selectByExample(new CepTcNameExample());
     }
 

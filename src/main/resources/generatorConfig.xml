@@ -39,24 +39,27 @@
                              targetProject="src/main/java"/>
         <!--生成全部表tableName设为%-->
 <!--        教学竞赛 teach_compet-->
-        <table tableName="cep_user">
+        <table tableName="user_guide_stu_compe">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <!--<table tableName="user_role">
+        <table tableName="user_patent">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="cep_role">
+        <table tableName="user_patent">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="cep_project_permisson">
+        <table tableName="user_sci_paper">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="cep_role_permisson_relationship">
+        <table tableName="user_teach_compet">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="cep_user_permisson">
+        <table tableName="user_teach_reform_thesis">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>-->
+        </table>
+        <table tableName="user_transfor_results">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
     </context>
 </generatorConfiguration>
 

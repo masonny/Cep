@@ -26,5 +26,7 @@
     <mappers>
 <!--        <mapper resource="mappers/MyCepTeachingCompetitionMapper.xml"/>-->
         <mapper resource="com/xhu/cep/mbg/mapper/teach_compet/TeachCompetMapper.xml"/>
+        <mapper resource="com/xhu/cep/mbg/mapper/teach_compet/CepTcNameMapper.xml"/>
+        <mapper resource="com/xhu/cep/mbg/mapper/teach_compet/CepTcOrganizerMapper.xml"/>
     </mappers>
 </configuration>
