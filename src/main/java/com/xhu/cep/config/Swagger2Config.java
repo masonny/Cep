@@ -25,8 +25,9 @@ import java.util.List;
 public class Swagger2Config {
     private final static String info =
             "1.1 增加获取教学竞赛认定级别表\t" +
-            "1.2 增加员工注册、登录、权限\t" +
-            "1.3 增加教师教学竞赛认定申请";
+                    "1.2 增加员工注册、登录、权限\t" +
+                    "1.3 增加教师教学竞赛认定申报" +
+                    "1.4 增加教改论文申报";
 
     @Bean
     public Docket createRestApi() {

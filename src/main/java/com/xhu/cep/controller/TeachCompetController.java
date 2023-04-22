@@ -73,7 +73,7 @@ public class TeachCompetController {
     }
 
     @ApiOperation(value = "申报教学竞赛")
-    @RequestMapping(value = "/userTeachCompet", method = RequestMethod.POST)
+    @RequestMapping(value = "/apply", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult applyTeachCompet(@RequestBody UserTeachCompetParam userTeachCompetParam) {
         //查询项目id

@@ -2,6 +2,7 @@ package com.xhu.cep.service.impl;
 
 import com.xhu.cep.mbg.mapper.teach_reform_thesis.TeachReformThesisMapper;
 import com.xhu.cep.mbg.model.teach_reform_thesis.TeachReformThesis;
+import com.xhu.cep.mbg.model.teach_reform_thesis.TeachReformThesisExample;
 import com.xhu.cep.service.TeachReformThesisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ public class TeachReformThesisServiceImpl implements TeachReformThesisService {
     private TeachReformThesisMapper teachReformThesisMapper;
     @Override
     public List<TeachReformThesis> getTeachReformThesisAll() {
-        return teachReformThesisMapper.getTeachReformThesisAll();
+        return teachReformThesisMapper.selectByExample(new TeachReformThesisExample());
     }
+
 }

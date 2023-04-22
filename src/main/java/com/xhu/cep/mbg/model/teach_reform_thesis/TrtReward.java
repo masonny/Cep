@@ -5,32 +5,16 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 
-public class TeachReformThesis implements Serializable {
+public class TrtReward implements Serializable {
     private Long id;
 
     /**
-     * 类别
+     * J值
      *
      * @mbg.generated
      */
-    @ApiModelProperty(value = "类别")
-    private String name;
-
-    /**
-     * 连接等级
-     *
-     * @mbg.generated
-     */
-    @ApiModelProperty(value = "连接等级")
-    private Long rankId;
-
-    /**
-     * 连接J值
-     *
-     * @mbg.generated
-     */
-    @ApiModelProperty(value = "连接J值")
-    private Long rewardId;
+    @ApiModelProperty(value = "J值")
+    private Integer j;
 
     /**
      * 描述
@@ -82,28 +66,12 @@ public class TeachReformThesis implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Integer getJ() {
+        return j;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Long getRankId() {
-        return rankId;
-    }
-
-    public void setRankId(Long rankId) {
-        this.rankId = rankId;
-    }
-
-    public Long getRewardId() {
-        return rewardId;
-    }
-
-    public void setRewardId(Long rewardId) {
-        this.rewardId = rewardId;
+    public void setJ(Integer j) {
+        this.j = j;
     }
 
     public String getDescripation() {
@@ -153,9 +121,7 @@ public class TeachReformThesis implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", rankId=").append(rankId);
-        sb.append(", rewardId=").append(rewardId);
+        sb.append(", j=").append(j);
         sb.append(", descripation=").append(descripation);
         sb.append(", status=").append(status);
         sb.append(", sort=").append(sort);

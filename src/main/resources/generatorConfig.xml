@@ -31,35 +31,35 @@
             <property name="nullCatalogMeansCurrent" value="true" />
         </jdbcConnection>
         <!--指定生成model的路径-->
-        <javaModelGenerator targetPackage="com.xhu.cep.mbg.model.admin" targetProject="src/main/java"/>
+        <javaModelGenerator targetPackage="com.xhu.cep.mbg.model.teach_reform_thesis" targetProject="src/main/java"/>
         <!--指定生成mapper.xml的路径-->
-        <sqlMapGenerator targetPackage="com.xhu.cep.mbg.mapper.admin" targetProject="src/main/resources"/>
+        <sqlMapGenerator targetPackage="com.xhu.cep.mbg.mapper.teach_reform_thesis" targetProject="src/main/resources"/>
         <!--指定生成mapper接口的的路径-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xhu.cep.mbg.mapper.admin"
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xhu.cep.mbg.mapper.teach_reform_thesis"
                              targetProject="src/main/java"/>
         <!--生成全部表tableName设为%-->
 <!--        教学竞赛 teach_compet-->
-        <table tableName="user_guide_stu_compe">
+        <table tableName="teach_reform_thesis">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="user_patent">
+        <table tableName="trt_reward">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="user_patent">
+        <table tableName="trt_rank">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="user_sci_paper">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="user_teach_compet">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="user_teach_reform_thesis">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="user_transfor_results">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
+<!--        <table tableName="user_sci_paper">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table tableName="user_teach_compet">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table tableName="user_teach_reform_thesis">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
+<!--        <table tableName="user_transfor_results">-->
+<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+<!--        </table>-->
     </context>
 </generatorConfiguration>
 

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xhu.cep.mbg.mapper.teach_reform_thesis.TeachReformThesisMapper">
-  <resultMap id="BaseResultMap" type="com.xhu.cep.mbg.model.teach_reform_thesis.TeachReformThesis">
+<mapper namespace="com.xhu.cep.mbg.mapper.teach_reform_thesis.TrtRankMapper">
+  <resultMap id="BaseResultMap" type="com.xhu.cep.mbg.model.teach_reform_thesis.TrtRank">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="rank_id" jdbcType="BIGINT" property="rankId" />
     <result column="reward_id" jdbcType="BIGINT" property="rewardId" />
     <result column="descripation" jdbcType="VARCHAR" property="descripation" />
     <result column="status" jdbcType="INTEGER" property="status" />
@@ -71,15 +70,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, rank_id, reward_id, descripation, status, sort, crete_time, updata_time
+    id, name, reward_id, descripation, status, sort, crete_time, updata_time
   </sql>
-  <select id="selectByExample" parameterType="com.xhu.cep.mbg.model.teach_reform_thesis.TeachReformThesisExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xhu.cep.mbg.model.teach_reform_thesis.TrtRankExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from teach_reform_thesis
+    from trt_rank
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -90,41 +89,38 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from teach_reform_thesis
+    from trt_rank
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from teach_reform_thesis
+    delete from trt_rank
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xhu.cep.mbg.model.teach_reform_thesis.TeachReformThesisExample">
-    delete from teach_reform_thesis
+  <delete id="deleteByExample" parameterType="com.xhu.cep.mbg.model.teach_reform_thesis.TrtRankExample">
+    delete from trt_rank
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xhu.cep.mbg.model.teach_reform_thesis.TeachReformThesis">
+  <insert id="insert" parameterType="com.xhu.cep.mbg.model.teach_reform_thesis.TrtRank">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into teach_reform_thesis (name, rank_id, reward_id, 
-      descripation, status, sort, 
-      crete_time, updata_time)
-    values (#{name,jdbcType=VARCHAR}, #{rankId,jdbcType=BIGINT}, #{rewardId,jdbcType=BIGINT}, 
-      #{descripation,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}, 
-      #{creteTime,jdbcType=TIMESTAMP}, #{updataTime,jdbcType=TIMESTAMP})
+    insert into trt_rank (name, reward_id, descripation, 
+      status, sort, crete_time, 
+      updata_time)
+    values (#{name,jdbcType=VARCHAR}, #{rewardId,jdbcType=BIGINT}, #{descripation,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{sort,jdbcType=INTEGER}, #{creteTime,jdbcType=TIMESTAMP}, 
+      #{updataTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.xhu.cep.mbg.model.teach_reform_thesis.TeachReformThesis">
+  <insert id="insertSelective" parameterType="com.xhu.cep.mbg.model.teach_reform_thesis.TrtRank">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into teach_reform_thesis
+    insert into trt_rank
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="name != null">
         name,
-      </if>
-      <if test="rankId != null">
-        rank_id,
       </if>
       <if test="rewardId != null">
         reward_id,
@@ -149,9 +145,6 @@
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="rankId != null">
-        #{rankId,jdbcType=BIGINT},
-      </if>
       <if test="rewardId != null">
         #{rewardId,jdbcType=BIGINT},
       </if>
@@ -172,23 +165,20 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xhu.cep.mbg.model.teach_reform_thesis.TeachReformThesisExample" resultType="java.lang.Long">
-    select count(*) from teach_reform_thesis
+  <select id="countByExample" parameterType="com.xhu.cep.mbg.model.teach_reform_thesis.TrtRankExample" resultType="java.lang.Long">
+    select count(*) from trt_rank
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update teach_reform_thesis
+    update trt_rank
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
       </if>
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
-      </if>
-      <if test="record.rankId != null">
-        rank_id = #{record.rankId,jdbcType=BIGINT},
       </if>
       <if test="record.rewardId != null">
         reward_id = #{record.rewardId,jdbcType=BIGINT},
@@ -214,10 +204,9 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update teach_reform_thesis
+    update trt_rank
     set id = #{record.id,jdbcType=BIGINT},
       name = #{record.name,jdbcType=VARCHAR},
-      rank_id = #{record.rankId,jdbcType=BIGINT},
       reward_id = #{record.rewardId,jdbcType=BIGINT},
       descripation = #{record.descripation,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=INTEGER},
@@ -228,14 +217,11 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xhu.cep.mbg.model.teach_reform_thesis.TeachReformThesis">
-    update teach_reform_thesis
+  <update id="updateByPrimaryKeySelective" parameterType="com.xhu.cep.mbg.model.teach_reform_thesis.TrtRank">
+    update trt_rank
     <set>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="rankId != null">
-        rank_id = #{rankId,jdbcType=BIGINT},
       </if>
       <if test="rewardId != null">
         reward_id = #{rewardId,jdbcType=BIGINT},
@@ -258,10 +244,9 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xhu.cep.mbg.model.teach_reform_thesis.TeachReformThesis">
-    update teach_reform_thesis
+  <update id="updateByPrimaryKey" parameterType="com.xhu.cep.mbg.model.teach_reform_thesis.TrtRank">
+    update trt_rank
     set name = #{name,jdbcType=VARCHAR},
-      rank_id = #{rankId,jdbcType=BIGINT},
       reward_id = #{rewardId,jdbcType=BIGINT},
       descripation = #{descripation,jdbcType=VARCHAR},
       status = #{status,jdbcType=INTEGER},
