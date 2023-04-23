@@ -38,26 +38,22 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.xhu.cep.mbg.mapper.admin"
                              targetProject="src/main/java"/>
         <!--生成全部表tableName设为%-->
-<!--        教学竞赛 teach_compet-->
-        <table tableName="user_guide_stu_compe">
+        <table tableName="user_rp">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-<!--        <table tableName="guide_stu_compe_j">-->
+<!--        <table tableName="rank_a1">-->
 <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
 <!--        </table>-->
-<!--        <table tableName="team_indiv_large">-->
+<!--        <table tableName="research_project">-->
 <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
 <!--        </table>-->
-<!--        <table tableName="user_sci_paper">-->
+<!--        <table tableName="rp_classifi">-->
 <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
 <!--        </table>-->
-<!--        <table tableName="user_teach_compet">-->
+<!--        <table tableName="rp_project_source">-->
 <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
 <!--        </table>-->
-<!--        <table tableName="user_teach_reform_thesis">-->
-<!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
-<!--        </table>-->
-<!--        <table tableName="user_transfor_results">-->
+<!--        <table tableName="k">-->
 <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
 <!--        </table>-->
     </context>

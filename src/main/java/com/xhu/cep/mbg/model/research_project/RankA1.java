@@ -5,24 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 
-public class ResearchProject implements Serializable {
+public class RankA1 implements Serializable {
     private Long id;
-
-    /**
-     * 等级A
-     *
-     * @mbg.generated
-     */
-    @ApiModelProperty(value = "等级A")
-    private String name;
-
-    /**
-     * 等级A
-     *
-     * @mbg.generated
-     */
-    @ApiModelProperty(value = "等级A")
-    private Long rankAId;
 
     /**
      * 等级A1
@@ -30,39 +14,7 @@ public class ResearchProject implements Serializable {
      * @mbg.generated
      */
     @ApiModelProperty(value = "等级A1")
-    private Long rankA1Id;
-
-    /**
-     * 类别
-     *
-     * @mbg.generated
-     */
-    @ApiModelProperty(value = "类别")
-    private Long classifiId;
-
-    /**
-     * 项目来源
-     *
-     * @mbg.generated
-     */
-    @ApiModelProperty(value = "项目来源")
-    private Long projSouId;
-
-    /**
-     * K值
-     *
-     * @mbg.generated
-     */
-    @ApiModelProperty(value = "K值")
-    private Long kId;
-
-    /**
-     * 通不通过
-     *
-     * @mbg.generated
-     */
-    @ApiModelProperty(value = "通不通过")
-    private Integer status;
+    private String name;
 
     /**
      * 描述
@@ -71,6 +23,14 @@ public class ResearchProject implements Serializable {
      */
     @ApiModelProperty(value = "描述")
     private String descripation;
+
+    /**
+     * 状态
+     *
+     * @mbg.generated
+     */
+    @ApiModelProperty(value = "状态")
+    private Integer status;
 
     /**
      * 排序
@@ -114,44 +74,12 @@ public class ResearchProject implements Serializable {
         this.name = name;
     }
 
-    public Long getRankAId() {
-        return rankAId;
+    public String getDescripation() {
+        return descripation;
     }
 
-    public void setRankAId(Long rankAId) {
-        this.rankAId = rankAId;
-    }
-
-    public Long getRankA1Id() {
-        return rankA1Id;
-    }
-
-    public void setRankA1Id(Long rankA1Id) {
-        this.rankA1Id = rankA1Id;
-    }
-
-    public Long getClassifiId() {
-        return classifiId;
-    }
-
-    public void setClassifiId(Long classifiId) {
-        this.classifiId = classifiId;
-    }
-
-    public Long getProjSouId() {
-        return projSouId;
-    }
-
-    public void setProjSouId(Long projSouId) {
-        this.projSouId = projSouId;
-    }
-
-    public Long getkId() {
-        return kId;
-    }
-
-    public void setkId(Long kId) {
-        this.kId = kId;
+    public void setDescripation(String descripation) {
+        this.descripation = descripation;
     }
 
     public Integer getStatus() {
@@ -160,14 +88,6 @@ public class ResearchProject implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
-    }
-
-    public String getDescripation() {
-        return descripation;
-    }
-
-    public void setDescripation(String descripation) {
-        this.descripation = descripation;
     }
 
     public Integer getSort() {
@@ -202,13 +122,8 @@ public class ResearchProject implements Serializable {
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
         sb.append(", name=").append(name);
-        sb.append(", rankAId=").append(rankAId);
-        sb.append(", rankA1Id=").append(rankA1Id);
-        sb.append(", classifiId=").append(classifiId);
-        sb.append(", projSouId=").append(projSouId);
-        sb.append(", kId=").append(kId);
-        sb.append(", status=").append(status);
         sb.append(", descripation=").append(descripation);
+        sb.append(", status=").append(status);
         sb.append(", sort=").append(sort);
         sb.append(", creteTime=").append(creteTime);
         sb.append(", updataTime=").append(updataTime);

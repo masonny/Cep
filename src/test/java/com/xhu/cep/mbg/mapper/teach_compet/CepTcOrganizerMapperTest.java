@@ -13,13 +13,12 @@ import java.io.InputStream;
 import java.util.List;
 
 public class CepTcOrganizerMapperTest {
-
     @Test
     public void selectByExample() throws IOException {
         InputStream is = Resources.getResourceAsStream("mybatisConfig.xml");
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
         SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(is);
-        SqlSession sqlSession = sqlSessionFactory.openSession(true);//自动提交方式
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
         CepTcOrganizerMapper mapper = sqlSession.getMapper(CepTcOrganizerMapper.class);
         CepTcOrganizerExample cepTcOrganizerExample = new CepTcOrganizerExample();

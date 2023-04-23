@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xhu.cep.mbg.mapper.research_project.ResearchProjectMapper">
-  <resultMap id="BaseResultMap" type="com.xhu.cep.mbg.model.research_project.ResearchProject">
+<mapper namespace="com.xhu.cep.mbg.mapper.research_project.RpClassifiMapper">
+  <resultMap id="BaseResultMap" type="com.xhu.cep.mbg.model.research_project.RpClassifi">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="rank_a_id" jdbcType="BIGINT" property="rankAId" />
-    <result column="rank_a1_id" jdbcType="BIGINT" property="rankA1Id" />
-    <result column="classifi_id" jdbcType="BIGINT" property="classifiId" />
-    <result column="proj_sou_id" jdbcType="BIGINT" property="projSouId" />
-    <result column="k_id" jdbcType="BIGINT" property="kId" />
-    <result column="status" jdbcType="INTEGER" property="status" />
     <result column="descripation" jdbcType="VARCHAR" property="descripation" />
+    <result column="status" jdbcType="INTEGER" property="status" />
     <result column="sort" jdbcType="INTEGER" property="sort" />
     <result column="crete_time" jdbcType="TIMESTAMP" property="creteTime" />
     <result column="updata_time" jdbcType="TIMESTAMP" property="updataTime" />
@@ -74,16 +69,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, rank_a_id, rank_a1_id, classifi_id, proj_sou_id, k_id, status, descripation, 
-    sort, crete_time, updata_time
+    id, name, descripation, status, sort, crete_time, updata_time
   </sql>
-  <select id="selectByExample" parameterType="com.xhu.cep.mbg.model.research_project.ResearchProjectExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xhu.cep.mbg.model.research_project.RpClassifiExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from research_project
+    from rp_classifi
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -94,61 +88,44 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from research_project
+    from rp_classifi
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from research_project
+    delete from rp_classifi
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xhu.cep.mbg.model.research_project.ResearchProjectExample">
-    delete from research_project
+  <delete id="deleteByExample" parameterType="com.xhu.cep.mbg.model.research_project.RpClassifiExample">
+    delete from rp_classifi
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xhu.cep.mbg.model.research_project.ResearchProject">
+  <insert id="insert" parameterType="com.xhu.cep.mbg.model.research_project.RpClassifi">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into research_project (name, rank_a_id, rank_a1_id, 
-      classifi_id, proj_sou_id, k_id, 
-      status, descripation, sort, 
-      crete_time, updata_time)
-    values (#{name,jdbcType=VARCHAR}, #{rankAId,jdbcType=BIGINT}, #{rankA1Id,jdbcType=BIGINT}, 
-      #{classifiId,jdbcType=BIGINT}, #{projSouId,jdbcType=BIGINT}, #{kId,jdbcType=BIGINT}, 
-      #{status,jdbcType=INTEGER}, #{descripation,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
-      #{creteTime,jdbcType=TIMESTAMP}, #{updataTime,jdbcType=TIMESTAMP})
+    insert into rp_classifi (name, descripation, status, 
+      sort, crete_time, updata_time
+      )
+    values (#{name,jdbcType=VARCHAR}, #{descripation,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{sort,jdbcType=INTEGER}, #{creteTime,jdbcType=TIMESTAMP}, #{updataTime,jdbcType=TIMESTAMP}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.xhu.cep.mbg.model.research_project.ResearchProject">
+  <insert id="insertSelective" parameterType="com.xhu.cep.mbg.model.research_project.RpClassifi">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into research_project
+    insert into rp_classifi
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="name != null">
         name,
       </if>
-      <if test="rankAId != null">
-        rank_a_id,
-      </if>
-      <if test="rankA1Id != null">
-        rank_a1_id,
-      </if>
-      <if test="classifiId != null">
-        classifi_id,
-      </if>
-      <if test="projSouId != null">
-        proj_sou_id,
-      </if>
-      <if test="kId != null">
-        k_id,
+      <if test="descripation != null">
+        descripation,
       </if>
       <if test="status != null">
         status,
-      </if>
-      <if test="descripation != null">
-        descripation,
       </if>
       <if test="sort != null">
         sort,
@@ -164,26 +141,11 @@
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="rankAId != null">
-        #{rankAId,jdbcType=BIGINT},
-      </if>
-      <if test="rankA1Id != null">
-        #{rankA1Id,jdbcType=BIGINT},
-      </if>
-      <if test="classifiId != null">
-        #{classifiId,jdbcType=BIGINT},
-      </if>
-      <if test="projSouId != null">
-        #{projSouId,jdbcType=BIGINT},
-      </if>
-      <if test="kId != null">
-        #{kId,jdbcType=BIGINT},
+      <if test="descripation != null">
+        #{descripation,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
         #{status,jdbcType=INTEGER},
-      </if>
-      <if test="descripation != null">
-        #{descripation,jdbcType=VARCHAR},
       </if>
       <if test="sort != null">
         #{sort,jdbcType=INTEGER},
@@ -196,14 +158,14 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xhu.cep.mbg.model.research_project.ResearchProjectExample" resultType="java.lang.Long">
-    select count(*) from research_project
+  <select id="countByExample" parameterType="com.xhu.cep.mbg.model.research_project.RpClassifiExample" resultType="java.lang.Long">
+    select count(*) from rp_classifi
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update research_project
+    update rp_classifi
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=BIGINT},
@@ -211,26 +173,11 @@
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.rankAId != null">
-        rank_a_id = #{record.rankAId,jdbcType=BIGINT},
-      </if>
-      <if test="record.rankA1Id != null">
-        rank_a1_id = #{record.rankA1Id,jdbcType=BIGINT},
-      </if>
-      <if test="record.classifiId != null">
-        classifi_id = #{record.classifiId,jdbcType=BIGINT},
-      </if>
-      <if test="record.projSouId != null">
-        proj_sou_id = #{record.projSouId,jdbcType=BIGINT},
-      </if>
-      <if test="record.kId != null">
-        k_id = #{record.kId,jdbcType=BIGINT},
+      <if test="record.descripation != null">
+        descripation = #{record.descripation,jdbcType=VARCHAR},
       </if>
       <if test="record.status != null">
         status = #{record.status,jdbcType=INTEGER},
-      </if>
-      <if test="record.descripation != null">
-        descripation = #{record.descripation,jdbcType=VARCHAR},
       </if>
       <if test="record.sort != null">
         sort = #{record.sort,jdbcType=INTEGER},
@@ -247,16 +194,11 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update research_project
+    update rp_classifi
     set id = #{record.id,jdbcType=BIGINT},
       name = #{record.name,jdbcType=VARCHAR},
-      rank_a_id = #{record.rankAId,jdbcType=BIGINT},
-      rank_a1_id = #{record.rankA1Id,jdbcType=BIGINT},
-      classifi_id = #{record.classifiId,jdbcType=BIGINT},
-      proj_sou_id = #{record.projSouId,jdbcType=BIGINT},
-      k_id = #{record.kId,jdbcType=BIGINT},
-      status = #{record.status,jdbcType=INTEGER},
       descripation = #{record.descripation,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
       sort = #{record.sort,jdbcType=INTEGER},
       crete_time = #{record.creteTime,jdbcType=TIMESTAMP},
       updata_time = #{record.updataTime,jdbcType=TIMESTAMP}
@@ -264,32 +206,17 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xhu.cep.mbg.model.research_project.ResearchProject">
-    update research_project
+  <update id="updateByPrimaryKeySelective" parameterType="com.xhu.cep.mbg.model.research_project.RpClassifi">
+    update rp_classifi
     <set>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="rankAId != null">
-        rank_a_id = #{rankAId,jdbcType=BIGINT},
-      </if>
-      <if test="rankA1Id != null">
-        rank_a1_id = #{rankA1Id,jdbcType=BIGINT},
-      </if>
-      <if test="classifiId != null">
-        classifi_id = #{classifiId,jdbcType=BIGINT},
-      </if>
-      <if test="projSouId != null">
-        proj_sou_id = #{projSouId,jdbcType=BIGINT},
-      </if>
-      <if test="kId != null">
-        k_id = #{kId,jdbcType=BIGINT},
+      <if test="descripation != null">
+        descripation = #{descripation,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
         status = #{status,jdbcType=INTEGER},
-      </if>
-      <if test="descripation != null">
-        descripation = #{descripation,jdbcType=VARCHAR},
       </if>
       <if test="sort != null">
         sort = #{sort,jdbcType=INTEGER},
@@ -303,16 +230,11 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xhu.cep.mbg.model.research_project.ResearchProject">
-    update research_project
+  <update id="updateByPrimaryKey" parameterType="com.xhu.cep.mbg.model.research_project.RpClassifi">
+    update rp_classifi
     set name = #{name,jdbcType=VARCHAR},
-      rank_a_id = #{rankAId,jdbcType=BIGINT},
-      rank_a1_id = #{rankA1Id,jdbcType=BIGINT},
-      classifi_id = #{classifiId,jdbcType=BIGINT},
-      proj_sou_id = #{projSouId,jdbcType=BIGINT},
-      k_id = #{kId,jdbcType=BIGINT},
-      status = #{status,jdbcType=INTEGER},
       descripation = #{descripation,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
       sort = #{sort,jdbcType=INTEGER},
       crete_time = #{creteTime,jdbcType=TIMESTAMP},
       updata_time = #{updataTime,jdbcType=TIMESTAMP}
